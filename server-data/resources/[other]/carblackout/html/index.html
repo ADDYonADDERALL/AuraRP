@@ -1,0 +1,40 @@
+<html>
+	<head>
+		<script src="nui://game/ui/jquery.js" type="text/javascript"></script>
+		<script>
+			var audioPlayer = null;
+			var isFading = false;
+
+			function fadeCallback(fadeTime, fadeLeft) {
+				if (fadeLeft <= 0) {
+					audioPlayer.pause();
+					audioPlayer = null;
+					isFading = false;
+				} else {
+					audioPlayer.volume = fadeLeft / fadeTime;
+					setTimeout(fadeCallback, 100, fadeTime, fadeLeft - 100);
+				}
+			}
+
+			window.addEventListener('message', function(event) {
+				if (event.data.transaction == "play") {
+					if (audioPlayer == null) {
+						audioPlayer = new Audio("./sounds/heartbeat.ogg");
+						audioPlayer.volume = 1.0;
+						audioPlayer.play();
+					}
+				} else if (event.data.transaction == "stop") {
+					if (audioPlayer != null) {
+						audioPlayer.pause();
+						audioPlayer = null;
+					}
+				} else if (event.data.transaction == "fade") {
+					if (audioPlayer != null && !isFading) {
+						isFading = true;
+						fadeCallback(event.data.time, event.data.time);
+					}
+				}
+			});
+		</script>
+	</head>
+</html>

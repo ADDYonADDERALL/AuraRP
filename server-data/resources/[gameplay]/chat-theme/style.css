@@ -1,0 +1,357 @@
+* {
+    font-family: inherit;
+}
+
+.chat-window {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  max-width: 550px;
+  width: 40%;
+  height: 340px;
+  word-wrap: break-word;
+  padding-right: 27px;
+
+  background-color: rgba(52, 73, 94, 0.0) !important;
+  -webkit-animation-duration: 2s;
+  
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+}
+
+@font-face {
+    font-family: 'Font2';
+    src: url(https://runtime.fivem.net/temp/ChaletLondonNineteenSixty.otf?a);
+}
+
+@font-face {
+    font-family: 'Font2_cond';
+    src: url(https://runtime.fivem.net/temp/chaletcomprime-colognesixty-webfont.ttf?a);
+}
+
+.msg {
+    font-family: Font2, sans-serif;
+    color: #fff;
+
+   
+    
+
+    line-height: 20px;
+    margin-bottom: 0;
+    font-size: 16px !important;
+}
+
+.chat-messages {
+    margin: 0;
+    height: 100%;
+
+}
+
+
+.msg > span > span > b {
+    font-family: Font2, sans-serif;
+    
+
+    vertical-align: baseline;
+    padding-right: 5px;
+
+    line-height: 20px;
+
+
+    font-size: 16px !important;
+}
+
+.msg > span > span > span {
+    vertical-align: baseline;
+}
+
+.msg i:first-of-type {
+    font-style: normal;
+    color: #c0c0c0;
+}
+
+.chat-input {
+    position: absolute;
+    left: calc(0.55vw);
+    top: calc(20.56vw);
+    width: 28%;
+    background: inherit !important;
+
+    text-align: right;
+
+    bottom: auto;
+    right: auto;
+
+    height: auto;
+
+    font-family: Font2, sans-serif;
+}
+
+.chat-input > div {
+    background-color: rgba(0, 0, 0, .6);
+    padding: calc(0.15625vw / 2);
+    border-radius: 5px;
+}
+
+.chat-input .prefix {
+    margin: 0;
+    margin-left: 0.7%;
+    margin-top: -0.1%;
+}
+
+.chat-input > div + div {
+    position: absolute;
+    bottom: calc(1.65vh + 0.15625vw + 0.15625vw + 0.15625vw + (0.15625vw / 2));
+    width: 57.6% !important;
+
+    text-align: left;
+    border-radius: 5px;
+}
+
+.suggestions {
+  list-style-type: none;
+  padding: 5px;
+  padding-left: 27px;
+  font-size: 1.1rem;
+  box-sizing: border-box;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.35);
+  width: 100%;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+}
+
+textarea {
+  font-size: 1.1rem;
+  display: block;
+  box-sizing: border-box;
+  padding: 7px;
+  padding-left: 25px;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.25);
+  width: 100%;
+  border-width: 0;
+  height: 34px;
+  overflow: hidden;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+  border-radius: 5px;
+}
+
+.default {
+    width: 98.5%;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    min-height: 20px;
+    /*background: rgba(255, 255, 255, 0.2);*/
+    border-radius: 5px;
+    padding-left: 30px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    margin-left: -1.5rem;
+    font-family: "Lato";
+    vertical-align: baseline;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+    
+}
+
+@keyframes animMsg {
+    0% {opacity: 0; padding-left: 500px;}
+    100% {opacity: 1; padding-left: 30px;}
+}
+
+.tweet {
+    width: 98.5%;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    min-height: 20px;
+    /*background: rgba(27, 149, 224, 0.67);*/
+    border-radius: 5px;
+    padding-left: 30px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    text-shadow: none !important;
+    vertical-align: baseline;
+    animation-name: animMsg;
+    animation-duration: 2s;
+    margin-left: -1.5rem;
+    
+}
+.tweet span {
+  vertical-align: middle;
+ /* filter: url(#svgDropShadowFilter); */
+  font-family: "Lato";
+  text-shadow: 1px 1px 0px #000;
+
+}
+
+.darkweb {
+    width: 98.5%;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    min-height: 20px;
+    /*background: rgba(0, 0, 0, 0.465);*/
+    border-radius: 5px;
+    padding-left: 30px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    text-shadow: none !important;
+    vertical-align: baseline;
+    animation-name: animMsg;
+    animation-duration: 2s;
+    margin-left: -1.5rem;
+    
+}
+.tweet span {
+  vertical-align: middle;
+ /* filter: url(#svgDropShadowFilter); */
+  font-family: "Lato";
+  text-shadow: 1px 1px 0px #000;
+
+}
+
+.ogloszenie {
+    width: 98.5%;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    min-height: 20px;
+    background: rgba(3, 180, 27, 0.67);
+    border-radius: 5px;
+    padding-left: 30px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    text-shadow: none !important;
+    vertical-align: baseline;
+    animation-name: animMsg;
+    animation-duration: 2s;
+    margin-left: -1.5rem;
+    
+}
+
+.ad {
+    width: 98.5%;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    min-height: 20px;
+    /*background: rgba(193, 207, 0, 0.67);*/
+    border-radius: 5px;
+    padding-left: 30px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    text-shadow: none !important;
+    vertical-align: baseline;
+    animation-name: animMsg;
+    animation-duration: 2s;
+    margin-left: -1.5rem;
+    
+}
+
+.ad span {
+    vertical-align: middle;
+   /* filter: url(#svgDropShadowFilter); */
+    font-family: "Lato";
+    text-shadow: 1px 1px 0px #000;
+  
+  }
+
+.ogloszenie span {
+  vertical-align: middle;
+ /* filter: url(#svgDropShadowFilter); */
+  font-family: "Lato";
+  text-shadow: 1px 1px 0px #000;
+
+}
+
+.icon {
+    position: relative;
+    bottom: -5px;
+    opacity: 0.5;
+    display: inline-flex;
+}
+
+.med {
+    width: 98.5%;
+    margin-top: 5px;
+    margin-left: 5px;
+    min-height: 20px;
+    background: rgba(193, 32, 32, 0.67);
+    border-radius: 5px;
+    padding-left: 30px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    text-shadow: none !important;
+    vertical-align: baseline;
+    margin-left: -1.5rem;
+    
+}
+.med span {
+  vertical-align: middle;
+ /* filter: url(#svgDropShadowFilter); */
+  font-family: "Lato";
+  text-shadow: 1px 1px 0px #000;
+
+}
+
+.localooc {
+    width: 98.5%;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    min-height: 20px;
+    /*background: rgba(124, 124, 124, 0.37);*/
+    border-radius: 5px;
+    padding-left: 30px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    text-shadow: none !important;
+    vertical-align: baseline;
+    margin-left: -1.5rem;
+    
+}
+.localooc span {
+  vertical-align: middle;
+ /* filter: url(#svgDropShadowFilter); */
+  font-family: "Lato";
+  text-shadow: 1px 1px 0px #000;
+
+}
+.ooc {
+    width: 98.5%;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    min-height: 20px;
+    background: rgba(124, 124, 124, 0.67) !important;
+    border-radius: 5px;
+    padding-left: 30px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    text-shadow: none !important;
+    vertical-align: baseline;
+    margin-left: -1.5rem;
+    
+}
+.ooc span {
+  vertical-align: middle;
+ /* filter: url(#svgDropShadowFilter); */
+  font-family: "Lato";
+  text-shadow: 1px 1px 0px #000;
+
+}
+.radio {
+    width: 98.5%;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    min-height: 20px;
+    background: rgba(193, 32, 32, 0.67);
+    border-radius: 5px;
+    padding-left: 30px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    text-shadow: none !important;
+    vertical-align: baseline;
+    margin-left: -1.5rem;
+    
+}
+.radio span {
+  vertical-align: middle;
+ /* filter: url(#svgDropShadowFilter); */
+  font-family: "Lato";
+  text-shadow: 1px 1px 0px #000;
+
+}

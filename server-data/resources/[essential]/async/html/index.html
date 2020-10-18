@@ -1,0 +1,218 @@
+<html>
+	<head>
+		<link href="jquery.emojipicker.css" rel="stylesheet">
+		<style>
+* {
+	font-family: Arial, Helvetica, sans-serif;
+	user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+}
+*:focus {
+	outline: none;
+}
+textarea::-webkit-scrollbar {
+	width: 8px;
+}
+textarea::-webkit-scrollbar-track {
+	background: #000;
+}
+textarea::-webkit-scrollbar-thumb {
+	background: #fff;
+}
+textarea::-webkit-scrollbar-thumb:hover {
+	background: #aaa;
+}
+.container {
+	position: absolute;
+	left: 50%;
+	top: 40%;
+	transform: translate(-50%, -50%);
+	-ms-transform: translate(-50%, -50%);
+	-webkit-transform: translate(-50%, -50%);
+
+	width: 60%;
+	min-height: 50px;
+	background-color: #000;
+	color: #fff;
+	padding: 3px;
+}
+.container > label {
+	display: block;
+	padding: 2px 3px;
+	font-size: 13px;
+}
+.container > label > span {
+	float: right;
+}
+.container > label > dfn {
+	font-style: normal;
+}
+.container > div > input, .container > div > textarea {
+	width: 100%;
+	background-color: #000;
+	border: 1px solid #fff;
+	color: #fff;
+	padding: 5px;
+	margin-top: 5px;
+}
+.container > div > input {
+	height: 30px;
+}
+.container > div > textarea {
+	height: 100px;
+	resize: none;
+}
+.container > div > button {
+	float: right;
+	background-color: #000;
+	color: #fff;
+	border: 1px solid #fff;
+	padding: 5px;
+	margin: 2px 0 0 2px;
+	width: 80px;
+}
+.container > div > button:hover {
+	background-color: #aaa;
+	color: #000;
+}
+
+.emojiPicker .sections { overflow-x: hidden; }
+		</style>
+
+		<script src="nui://game/ui/jquery.js"></script>
+		<script src="jquery.emojis.js"></script>
+		<script src="jquery.emojipicker.js"></script>
+		<script>
+function onInput(obj, value) {
+	$('.container > label > span').html('(' + value + '/' + $('.container > label > dfn').data('limit') + ')');
+	if(value > $('.container > label > dfn').data('limit')) {
+		$(obj).val($(obj).val().substr(0, $('.container > label > dfn').data('limit')));
+	}
+}
+
+function onFinish() {
+	$('body').hide();
+	$('.container > label > dfn').data('limit', 255).html('Wpisz tekst:');
+	$('.container > label > span').html('(0/255)');
+	$('.container > div > input').attr('type', 'text').val('').parent().hide();
+	$('.container > div > textarea').val('').parent().hide();
+	$('.container > div > button:first-child').removeData('type');
+}
+
+window.addEventListener('message', function(event) {
+	$('.container > label > dfn').data('limit', event.data.limit).html(event.data.title);
+	if(event.data.type != 'textarea') {
+		$('.container > div > input').attr('type', event.data.type);
+		event.data.type = 'input';
+	} else {
+		
+		event.data.type = 'textarea';
+	}
+
+	$('.container > div > button:first-child').data('type', event.data.type);
+	event.data.type = '.container > div > ' + event.data.type;
+
+	$(event.data.type).parent().show();
+	if(event.data.value && event.data.value.length > 0) {
+		$(event.data.type).val(event.data.value);
+		onInput(event.data.type, event.data.value.length);
+	} else {
+		onInput(event.data.type, 0);
+	}
+
+	$('body').show();
+	setTimeout(function() {
+		$(event.data.type).focus();
+	}, 200);
+});
+
+$(document).ready(function() {
+	$('.container > div > textarea, .container > div > input').emojiPicker({
+		width: '300px',
+		height: '200px',
+		button: false
+	});
+
+	$(window).keyup(function(event) {
+		if (event.keyCode == 27 || event.which == 27) {
+			event.preventDefault();
+			$.post('http://async/keyboardCancel', JSON.stringify({}));
+			onFinish();
+		}
+	});
+
+	$('.container > div > input').keydown(function(event) {
+		onInput(this, $(this).val().length);
+		if (event.keyCode == 13 || event.which == 13) {
+			event.preventDefault();
+			$.post('http://async/keyboardSubmit', JSON.stringify({
+				value: $(this).val()
+			}));
+
+			onFinish();
+		} else if(event.keyCode == 9 || event.which == 9) {
+			$('.container > div > ' + $('.container > div > button:first-child').data('type')).emojiPicker('toggle');
+		}
+	});
+
+	$('.container > div > textarea').keydown(function(event) {
+		onInput(this, $(this).val().length);
+		if (!event.shiftKey && (event.keyCode == 13 || event.which == 13)) {
+			event.preventDefault();
+			$.post('http://async/keyboardSubmit', JSON.stringify({
+				value: $(this).val()
+			}));
+
+			onFinish();
+		} else if(event.keyCode == 9 || event.which == 9) {
+			$('.container > div > ' + $('.container > div > button:first-child').data('type')).emojiPicker('toggle');
+		}
+	});
+
+	$('.container > div > button').click(function(event) {
+		event.preventDefault();
+		switch($(this).html()) {
+			case 'OK':
+				$.post('http://async/keyboardSubmit', JSON.stringify({
+					value: $('.container > div > ' + $('.container > div > button:first-child').data('type')).val()
+				}));
+
+				onFinish();
+			break;
+
+			case 'Emoji':
+				$('.container > div > ' + $('.container > div > button:first-child').data('type')).emojiPicker('toggle');
+			break;
+
+			case 'Anuluj':
+				$.post('http://async/keyboardCancel', JSON.stringify({}));
+				onFinish();
+			break;
+
+			default: break;
+		}
+	});
+});
+		</script>
+	</head>
+	<body style="display: none;">
+		<div class="container">
+			<label><dfn data-limit="255">Wpisz tekst:</dfn><span></span></label>
+			<div style="display: none;">
+				<input type="text"/>
+			</div>
+			<div style="display: none;">
+				<textarea></textarea>
+			</div>
+			<div>
+				<button>OK</button>
+				<button>Emoji</button>
+				<button>Anuluj</button>
+			</div>
+		</div>
+	</body>
+</html>

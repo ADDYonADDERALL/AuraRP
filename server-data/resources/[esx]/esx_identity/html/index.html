@@ -1,0 +1,84 @@
+<html>
+	<head>
+			<script src="nui://game/ui/jquery.js" type="text/javascript"></script>
+			<link rel="stylesheet" href="css/bootstrap-extend.css">
+			<link rel="stylesheet" href="css/master_style.css">
+			
+	</head>
+	<body style ='overflow-x: hidden; overflow-y: hidden'>
+		<div class="auth-2">
+		  <div class="auth-logo font-size-50">
+			<b>AuraRP</b>
+		  </div>
+		  <!-- /.login-logo -->
+		  <div class="auth-body">
+			<p class="auth-msg" style="margin-bottom:20px;">Tworzenie postaci <BR></p> 
+<B style="color: #000;">Obywatelu pamiętaj:<BR>
+1. Imię i nazwisko musi zaczynać się z dużej litery.<BR>
+2. Zakazane jest posiadanie Polskich imion i nazwisk.<BR>
+3. Imiona i nazwiska np. celebrytów, znanych postaci fikcyjnych - nie są dozwolone!<BR><BR><BR></B>
+			<form class="form-element" id="register">
+			  <div class="form-group has-feedback">
+				<input style="color: #000000;" type="text" class="form-control" placeholder="Imię (Angelo)" id="firstname">
+				<span class="ion ion-person form-control-feedback "></span>
+			  </div>
+			  <div class="form-group has-feedback">
+				<input style="color: #000000;" type="text" class="form-control" placeholder="Nazwisko (Connor)" id="lastname">
+				<span class="ion ion-person form-control-feedback "></span>
+			  </div>
+			  <div class="form-group has-feedback">
+				<input style="color: #000000;" type="text" class="form-control" placeholder="Wzrost (160)" id="height">
+				<span class="ion ion-log-in form-control-feedback "></span>
+			  </div>
+			  <div class="row">
+			  	<div class="col-3" style="text-align: right;">
+			  		<B style="color: #000000;">Płeć:</B>
+			  	</div>
+				<div class="col-9">
+				  <div class="checkbox" style="color: #000000;">
+				  	<fieldset id="sex">
+						<input type="radio" name="sex" id="sex1"  value="m" checked>
+						<label for="sex1">Mężczyzna</label> &nbsp;&nbsp;&nbsp;
+						<input type="radio"  name="sex" id="sex2" value="f">
+						<label for="sex2">Kobieta</label>
+					</fieldset>
+				  </div>
+				</div>
+				
+					<div class="col-3" style="text-align: right;">
+						<B style="color: #000000;">Grupa Krwi:</B>
+					</div>	
+					<div class="col-9">
+						<div class="checkbox" style="color: #000000;">
+							<fieldset id="dateofbirth">
+								<input type="radio" name="dateofbirth" id="g1"  value="0" checked>
+								<label for="g1">0</label>
+								<input type="radio"  name="dateofbirth" id="g2" value="A">
+								<label for="g2">A</label>
+
+								<input type="radio" name="dateofbirth" id="g3"  value="B">
+								<label for="g3">B</label>
+								<input type="radio"  name="dateofbirth" id="g4" value="AB">
+								<label for="g4">AB</label>
+							</fieldset>
+						</div>
+				
+
+				
+				<!-- /.col -->
+				<div class="col-12 text-center">
+				  <button type="submit" class="btn btn-block mt-10 btn-success">Utwórz postać</button>
+				</div>
+				<!-- /.col -->
+			  </div>
+			</form>
+		  </div>
+	
+	</div>
+	<script src="js/script.js"></script>
+	<script>
+		
+	</script>
+
+</body>
+</html>

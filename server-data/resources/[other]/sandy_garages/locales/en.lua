@@ -1,0 +1,38 @@
+Locales['en'] = {
+	['store_veh'] = "Press ~INPUT_CONTEXT~ to ~g~STORE~w~ this car",
+	['release_veh'] = "Press ~INPUT_CONTEXT~ to ~b~OPEN~w~ your garage",
+	['tow_veh'] = "Press ~INPUT_CONTEXT~ to ~b~TOW~w~ vehicle",
+	['p_impound_veh'] = "Press ~INPUT_CONTEXT~ to ~b~PULL OUT~w~ impounded vehicle",
+	['subowner_veh'] = "Press ~INPUT_CONTEXT~ to ~b~SET~w~ subowner for vehicle",
+	
+	['veh_released'] = "Vehicle~g~ pulled out",
+	['veh_stored'] = "Vehicle ~g~stored",
+	['repair'] = "~r~Vehicle must be repaired",
+	
+	['max_subs'] = "~r~The maximum number of subowners for this vehicle has been reached",
+	['sub_added'] = "~g~A new subowner has been added",
+	['you_are_sub'] = "~g~You have subowned a vehicle with registration numbers %s",
+	['not_owner'] = "~r~You don't own this vehicle",
+	['not_veh'] = "~r~You don't own this vehicle or this vehicle doesn't exist",
+	['sub_deleted'] = "~g~Subowner deleted",
+	['checking_veh'] = "Searching for vehicle...",
+	['veh_impounded'] = "You have towed the vehicle with the registration number ~g~%s",
+	['no_money'] = "~r~You can't afford to tow this vehicle",
+	['cant_impound'] = "~r~You cannot tow this vehicle",
+	['no_veh'] = "~r~Taki numer rejestracyjny nie istnieje!",
+	['set_sub'] = "Set subowner",
+	['manage_sub'] = "Manage subowners",
+	['no_players'] = "~r~No players nearby",
+	['deleting_sub'] = "Deleting subowner - %s",
+	['sure_delete'] = "Are you sure you want to delete the subowner?",
+	['no'] = "No",
+	['yes'] = "Yes",
+	['no_subs'] = "~r~There are no subowners for this vehicle",
+	['vehs_out'] = "Vehicles outside the garage",
+	['police_impound'] = "Police parking",
+	['veh_reg'] = "Registration number",
+	['owner_menu'] = "Owner menu - %s",
+	
+	['garage_blip'] = "Garage",
+	['impound_blip'] = "Towing vehicles"
+}

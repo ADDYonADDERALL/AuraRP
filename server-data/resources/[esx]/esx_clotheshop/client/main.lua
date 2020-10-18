@@ -1,0 +1,282 @@
+local Keys = {
+	["ESC"] = 322, ["F1"] = 288, ["F2"] = 289, ["F3"] = 170, ["F5"] = 166, ["F6"] = 167, ["F7"] = 168, ["F8"] = 169, ["F9"] = 56, ["F10"] = 57,
+	["~"] = 243, ["1"] = 157, ["2"] = 158, ["3"] = 160, ["4"] = 164, ["5"] = 165, ["6"] = 159, ["7"] = 161, ["8"] = 162, ["9"] = 163, ["-"] = 84, ["="] = 83, ["BACKSPACE"] = 177,
+	["TAB"] = 37, ["Q"] = 44, ["W"] = 32, ["E"] = 38, ["R"] = 45, ["T"] = 245, ["Y"] = 246, ["U"] = 303, ["P"] = 199, ["["] = 39, ["]"] = 40, ["ENTER"] = 18,
+	["CAPS"] = 137, ["A"] = 34, ["S"] = 8, ["D"] = 9, ["F"] = 23, ["G"] = 47, ["H"] = 74, ["K"] = 311, ["L"] = 182,
+	["LEFTSHIFT"] = 21, ["Z"] = 20, ["X"] = 73, ["C"] = 26, ["V"] = 0, ["B"] = 29, ["N"] = 249, ["M"] = 244, [","] = 82, ["."] = 81,
+	["LEFTCTRL"] = 36, ["LEFTALT"] = 19, ["SPACE"] = 22, ["RIGHTCTRL"] = 70,
+	["HOME"] = 213, ["PAGEUP"] = 10, ["PAGEDOWN"] = 11, ["DELETE"] = 178,
+	["LEFT"] = 174, ["RIGHT"] = 175, ["TOP"] = 27, ["DOWN"] = 173,
+	["NENTER"] = 201, ["N4"] = 108, ["N5"] = 60, ["N6"] = 107, ["N+"] = 96, ["N-"] = 97, ["N7"] = 117, ["N8"] = 61, ["N9"] = 118
+}
+
+ESX                           = nil
+local HasAlreadyEnteredMarker = false
+local LastZone                = nil
+local CurrentAction           = nil
+local CurrentActionMsg        = ''
+local CurrentActionData       = {}
+local HasPaid                = false
+local Blockerino			= false
+
+Citizen.CreateThread(function()
+	while ESX == nil do
+		TriggerEvent('esx:getSharedObject', function(obj) ESX = obj end)
+		Citizen.Wait(0)
+	end
+end)
+
+function OpenShopMenu()
+	HasPaid = false
+
+	TriggerEvent('esx_skin:openRestrictedMenu', function(data, menu)
+		menu.close()
+		Blockerino = true
+
+		ESX.UI.Menu.Open('default', GetCurrentResourceName(), 'shop_confirm',
+		{
+			title = _U('valid_this_purchase'),
+			align    = 'right',
+			elements = {
+				{label = _U('yes'), value = 'yes'},
+				{label = _U('no'), value = 'no'}
+			}
+		}, function(data, menu)
+			menu.close()
+			Blockerino = false
+
+			if data.current.value == 'yes' then
+				ESX.TriggerServerCallback('esx_clotheshop:buyClothes', function(bought)
+					if bought then
+						TriggerEvent('skinchanger:getSkin', function(skin)
+							TriggerServerEvent('esx_skin:save', skin)
+							Blockerino = false
+						end)
+
+						HasPaid = true
+
+						ESX.TriggerServerCallback('esx_clotheshop:checkPropertyDataStore', function(foundStore)
+							if foundStore then
+								ESX.UI.Menu.Open('default', GetCurrentResourceName(), 'save_dressing',
+								{
+									title = _U('save_in_dressing'),
+									align    = 'right',
+									elements = {
+										{label = _U('yes'), value = 'yes'},
+										{label = _U('no'),  value = 'no'}
+									}
+								}, function(data2, menu2)
+									menu2.close()
+									Blockerino = false
+									
+									if data2.current.value == 'yes' then
+										ESX.UI.Menu.Open('dialog', GetCurrentResourceName(), 'outfit_name', {
+											title = _U('name_outfit')
+										}, function(data3, menu3)
+											menu3.close()
+											Blockerino = false
+
+											TriggerEvent('skinchanger:getSkin', function(skin)
+												TriggerServerEvent('esx_clotheshop:saveOutfit', data3.value, skin)
+											end)
+
+											ESX.ShowNotification(_U('saved_outfit'))
+										end, function(data3, menu3)
+											menu3.close()
+											Blockerino = false
+										end)
+									end
+								end)
+							end
+						end)
+
+					else
+						ESX.TriggerServerCallback('esx_skin:getPlayerSkin', function(skin)
+							TriggerEvent('skinchanger:loadSkin', skin)
+						end)
+
+						ESX.ShowNotification(_U('not_enough_money'))
+						Blockerino = false
+					end
+				end)
+			elseif data.current.value == 'no' then
+				ESX.TriggerServerCallback('esx_skin:getPlayerSkin', function(skin)
+					TriggerEvent('skinchanger:loadSkin', skin)
+					Blockerino = false
+				end)
+			end
+
+			CurrentAction     = 'shop_menu'
+			CurrentActionMsg  = _U('press_menu')
+			CurrentActionData = {}
+		end, function(data, menu)
+			menu.close()
+			Blockerino = false
+
+			CurrentAction     = 'shop_menu'
+			CurrentActionMsg  = _U('press_menu')
+			CurrentActionData = {}
+		end)
+
+	end, function(data, menu)
+		menu.close()
+		Blockerino = false
+
+		CurrentAction     = 'shop_menu'
+		CurrentActionMsg  = _U('press_menu')
+		CurrentActionData = {}
+	end, {
+		'tshirt_1',
+		'tshirt_2',
+		'torso_1',
+		'torso_2',
+		'decals_1',
+		'decals_2',
+		'arms',
+		'arms_2',
+		'chain_1',
+		'chain_2',
+		'bag',
+		'bag_color',
+		'decals_1',
+		'decals_2',
+		'pants_1',
+		'pants_2',
+		'shoes_1',
+		'shoes_2',
+		'bags_1',
+		'bags_2',
+		'helmet_1',
+		'helmet_2',
+		'mask_1',
+		'mask_2',
+		'ears_1',
+		'ears_2',
+		'glasses_1',
+		'glasses_2',
+		'watches_1',
+		'watches_2',
+		'bracelets_1',
+		'bracelets_2'
+	})
+
+end
+
+AddEventHandler('esx_clotheshop:hasEnteredMarker', function(zone)
+	CurrentAction     = 'shop_menu'
+	CurrentActionMsg  = _U('press_menu')
+	CurrentActionData = {}
+end)
+
+AddEventHandler('esx_clotheshop:hasExitedMarker', function(zone)
+	ESX.UI.Menu.CloseAll()
+	Blockerino = false
+	CurrentAction = nil
+
+	if not HasPaid then
+	ESX.TriggerServerCallback('esx_skin:getPlayerSkin', function(skin)
+		TriggerEvent('skinchanger:loadSkin', skin)
+		end)
+	end
+end)
+
+-- Create Blips
+Citizen.CreateThread(function()
+	for i=1, #Config.Shops, 1 do
+		local blip = AddBlipForCoord(Config.Shops[i].x, Config.Shops[i].y, Config.Shops[i].z)
+
+		SetBlipSprite (blip, 73)
+		SetBlipDisplay(blip, 4)
+		SetBlipScale  (blip, 0.6)
+		SetBlipColour (blip, 0)
+		SetBlipAsShortRange(blip, true)
+
+		BeginTextCommandSetBlipName("STRING")
+		AddTextComponentString(_U('clothes'))
+		EndTextCommandSetBlipName(blip)
+	end
+end)
+
+-- Display markers
+Citizen.CreateThread(function()
+	while true do
+		Citizen.Wait(1)
+
+		local coords = GetEntityCoords(PlayerPedId())
+
+		for k,v in pairs(Config.Zones) do
+			if(v.Type ~= -1 and GetDistanceBetweenCoords(coords, v.Pos.x, v.Pos.y, v.Pos.z, true) < Config.DrawDistance) then
+				DrawMarker(v.Type, v.Pos.x, v.Pos.y, v.Pos.z, 0.0, 0.0, 0.0, 0, 0.0, 0.0, v.Size.x, v.Size.y, v.Size.z, v.Color.r, v.Color.g, v.Color.b, 100, false, true, 2, false, false, false, false)
+			end
+		end
+	end
+end)
+
+-- Enter / Exit marker events
+Citizen.CreateThread(function()
+	while true do
+		Citizen.Wait(500)
+
+		local coords      = GetEntityCoords(PlayerPedId())
+		local isInMarker  = false
+		local currentZone = nil
+
+		for k,v in pairs(Config.Zones) do
+			if(GetDistanceBetweenCoords(coords, v.Pos.x, v.Pos.y, v.Pos.z, true) < v.Size.x) then
+				isInMarker  = true
+				currentZone = k
+			end
+		end
+
+		if (isInMarker and not HasAlreadyEnteredMarker) or (isInMarker and LastZone ~= currentZone) then
+			HasAlreadyEnteredMarker = true
+			LastZone                = currentZone
+			TriggerEvent('esx_clotheshop:hasEnteredMarker', currentZone)
+		end
+
+		if not isInMarker and HasAlreadyEnteredMarker then
+			HasAlreadyEnteredMarker = false
+			TriggerEvent('esx_clotheshop:hasExitedMarker', LastZone)
+		end
+	end
+end)
+
+-- Key controls
+Citizen.CreateThread(function()
+	while true do
+		Citizen.Wait(5)
+
+		if CurrentAction ~= nil then
+			ESX.ShowHelpNotification(CurrentActionMsg)
+
+			if IsControlJustReleased(0, Keys['E']) then
+				if CurrentAction == 'shop_menu' then
+					OpenShopMenu()
+				end
+
+				CurrentAction = nil
+			end
+		else
+			Citizen.Wait(500)
+		end
+	end
+end)
+
+Citizen.CreateThread(function()
+	while true do
+		Citizen.Wait(5)
+			
+		if Blockerino then
+		DisableControlAction(0, 177,  true) -- BACKSPACE / ESC / RIGHT MOUSE BUTTON
+		DisableControlAction(0, 30,  true) -- INPUT_MOVE_LR
+		DisableControlAction(0, 31,  true) -- INPUT_MOVE_UD
+		DisableControlAction(0, 140,  true) -- INPUT_MELEE_ATTACK_LIGHT
+		DisableControlAction(0, 141,  true) -- INPUT_MELEE_ATTACK_HEAVY
+		DisableControlAction(0, 263,  true) -- INPUT_MELEE_ATTACK1
+		DisableControlAction(0, 264,  true) -- INPUT_MELEE_ATTACK2
+		DisableControlAction(0, 44,  true) -- INPUT_COVER
+		DisableControlAction(0, 243,  true) -- ~
+		DisableControlAction(0, 288,  true) -- F1
+	end
+	end
+end)

@@ -1,0 +1,126 @@
+/*
+#98D4E0 - jasny
+#0E718B - ciemny
+#000000 - czarny
+*/
+
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro&display=swap');
+
+@font-face {
+	font-family: bankgothic;
+	src: url('../fonts/bankgothic.ttf');
+}
+
+@font-face {
+	font-family: pcdown;
+	src: url('../fonts/pdown.ttf');
+}
+
+#controls {
+	font-family: 'Source Sans Pro', sans-serif;
+  text-transform: uppercase;
+	font-size: 3em;
+  color: #FFF;
+  background: none;
+	position: absolute;
+	bottom: 40;
+	right: 40;
+}
+
+.controls {
+	display: none;
+}
+
+.dialog {
+  font-family: 'Source Sans Pro', sans-serif;
+	background-color: rgba(10, 10, 10, 0.6);
+	color: rgba(255, 255, 255, 0.95);
+	position: absolute;
+  overflow: hidden;
+  border-radius: 5px;
+	top: 50%;
+	left: 50%;
+	min-width: 12%;
+	height: 104px;
+	transform: translate(-50%, -50%);
+}
+
+.dialog.big {
+	height: 200px;
+}
+
+.dialog .head {
+  font-family: 'Source Sans Pro', sans-serif;
+	background: -moz-linear-gradient(left,  rgba(249, 176, 6, 1) 0%, rgba(249, 59, 6, 1) 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(left,  rgba(249, 176, 6, 1) 0%, rgba(249, 59, 6, 1) 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to right,  rgba(249, 176, 6, 1) 0%, rgba(249, 59, 6, 1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  text-transform: capitalize;
+  background-size: 200% 200%;
+  background-position: 100% 100%;
+	text-align: center;
+	height: 40px;
+  -webkit-animation: AnimationName 10s ease infinite;
+  -moz-animation: AnimationName 10s ease infinite;
+  animation: AnimationName 10s ease infinite;
+}
+
+.dialog .head span:before {
+  font-family: 'Source Sans Pro', sans-serif;
+	content: "";
+	display: inline-block;
+	height: 100%;
+	vertical-align: middle;
+}
+
+.dialog input[type="text"] {
+  font-family: 'Source Sans Pro', sans-serif;
+  background: none;
+  outline: none;
+  border: none;
+	width: 100%;
+	height: 32px;
+  color: rgba(255, 255, 255, 0.95);
+  text-align: center;
+}
+
+.dialog textarea {
+  font-family: 'Source Sans Pro', sans-serif;
+  background: none;
+  outline: none;
+  border: none;
+	width: 100%;
+	height: 128px;
+}
+
+.dialog button {
+  font-family: 'Source Sans Pro', sans-serif;
+	color: rgba(255, 255, 255, 0.95);
+  text-transform: uppercase;
+  background: none;
+  outline: none;
+  border: none;
+	width: 50%;
+	height: 1.7vw;
+}
+
+.dialog button:hover {
+  background-color: rgba(255, 255, 255, 0.9);
+  color: rgba(0, 0, 0, 1);
+}
+
+
+@-webkit-keyframes AnimationName {
+  0%{background-position:0% 50%}
+  50%{background-position:100% 50%}
+  100%{background-position:0% 50%}
+}
+@-moz-keyframes AnimationName {
+  0%{background-position:0% 50%}
+  50%{background-position:100% 50%}
+  100%{background-position:0% 50%}
+}
+@keyframes AnimationName { 
+  0%{background-position:0% 50%}
+  50%{background-position:100% 50%}
+  100%{background-position:0% 50%}
+}

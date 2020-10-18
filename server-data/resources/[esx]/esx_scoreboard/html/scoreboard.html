@@ -1,0 +1,36 @@
+<html>
+
+<head>
+	<script src="nui://game/ui/jquery.js" type="text/javascript"></script>
+	<script src="nui://esx_scoreboard/html/listener.js" type="text/javascript"></script>
+	<link rel="stylesheet" href="nui://esx_scoreboard/html/style.css">
+</head>
+
+<body>
+	<div style="display: none;" id="wrap">
+	   <div class="preLogo">
+		   <center>
+		<img src="https://i.imgur.com/79A596R.png" width=150px height=150px>
+	</center>
+	   </div>
+
+	   <div class="title">
+		   <div class="jobs">
+			<strong>
+			<p style="color:rgb(195, 91, 91);"> EMS: <span class="tts" id="ems"> 0</span> </p>
+			<p style="color:#5ea1e0;"> LSPD: <span class="tts" id="police"> 0</span> </p>
+			<p style="color:yellow;"> LSC: <span class="tts" id="mechanic"> 0</span> </p>
+			</strong>
+		   </div>
+	   </div>
+
+	   <div class="serverinfo">
+		<strong><span>ID:</span></strong> <span id="server_uptime"></span><br> <strong><span>Graczy:</span></strong> <span id="player_count">0</span> / <span id="max_players">100</span><br>
+		<strong><span>Praca:</span></strong> <span id="praca">Bezrobotny/a</span><br>
+		<strong><span>Druga Praca:</span></strong> <span id="praca2">Bezrobotny/a</span>
+	   </div>
+
+   </div>
+</body>
+
+</html>

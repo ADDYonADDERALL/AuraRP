@@ -1,0 +1,336 @@
+{
+  "reseau": "AuraLTE 4G",
+  "warningMessageCount": 350,
+  "themeColor": "#303f9f",
+  "colors": [
+    "#EF5350",
+    "#EC407A",
+    "#AB47BC",
+    "#7E57C2",
+    "#5C6BC0",
+    "#42A5F5",
+    "#29B6F6",
+    "#26C6DA",
+    "#26A69A",
+    "#66BB6A",
+    "#9CCC65",
+    "#D4E157",
+    "#FFCA28",
+    "#FFA726",
+    "#FF7043",
+    "#8D6E63",
+    "#78909C"
+  ],
+
+  "useFormatNumberFrance": true,
+
+  "useWebRTCVocal": true,
+  "RTCConfig": {
+    "iceServers": [{
+      "urls": ["turn:195.201.58.38:12779"],
+      "username": "starynajebany",
+      "credential": "zxczxc123"
+    }]
+  },
+
+  "//": "REQUIRE https://github.com/citizenfx/screenshot-basic or set false",
+  "enableTakePhoto": true,
+  "fileUploadService_Url": "https://wew.wtf/upload.php",
+  "fileUploadService_Field": "files[]",
+
+  "background": {
+  "Wilk": "wolf__gif__by_furrirama-d9ek9s4.gif",
+  "Deszcz": "back009.gif",
+	"Snus": "snus.jpg",
+  "Trippy": "trippy.jpg",
+  "Neonowa Maska": "NeonMask.jpg",
+  "Border": "border.jpg",
+    "Własna Tapeta": "URL"
+  },
+  "background_default": {
+    "label": "Snus",
+    "value": "snus.jpg"
+  },
+
+
+  "coque": {
+    "iPhone X": "iphonex.png",
+	"Samsung Galaxy S8": "s8.png"
+  },
+  "coque_default": {
+    "label": "Iphone X",
+    "value": "iphonex.png"
+  },
+
+
+  "serviceCall": [{
+    "display": "LSPD",
+    "icon": "/html/static/img/icons_app/lspd.png",
+    "subMenu": [
+      {
+        "title": "Wyślij Zgłoszenie",
+        "eventName": "rich-alert:callNumber",
+        "type": {
+          "number": "police"
+        }
+      }
+    ]
+  },
+  {
+    "display": "EMS",
+    "icon": "/html/static/img/icons_app/ems.png",
+    "subMenu": [
+      {
+        "title": "Wyślij Wezwanie",
+        "eventName": "rich-alert:callNumber",
+        "type": {
+          "number": "ambulance"
+        }
+      }
+    ]
+  },
+  {
+    "display": "LSC",
+    "icon": "/html/static/img/icons_app/lsc.png",
+    "subMenu": [
+      {
+        "title": "Wezwij Pomoc",
+        "eventName": "rich-alert:callNumber",
+        "type": {
+          "number": "mecano"
+        }
+      }
+    ]
+  },
+  {
+    "display": "Taxi",
+    "icon": "/html/static/img/icons_app/taxi.png",
+    "subMenu": [
+      {
+        "title": "Zamów Taksówkę",
+        "eventName": "rich-alert:callNumber",
+        "type": {
+          "number": "taxi"
+        }
+      }
+    ]
+  }
+],
+
+  "apps": [
+    {
+      "name": "Telefon",
+      "sv_SE__name": "Telefon",
+      "fr_FR__name": "Telefon",
+      "cs_CZ__name": "Telefon",
+      "en_US__name": "Telefon",
+      "de_DE__name": "Telefon",
+      "pl_PL__name": "Telefon",
+      "es_ES__name": "Telefon",
+      "icons": "/html/static/img/icons_app/call.png",
+      "routeName": "appels",
+      "inHomePage": true
+    },
+    {
+      "name": "Wiadomości",
+      "sv_SE__name": "Wiadomości",
+      "fr_FR__name": "Wiadomości",
+      "en_US__name": "Wiadomości",
+      "cs_CZ__name": "Wiadomości",
+      "de_DE__name": "Wiadomości",
+      "pl_PL__name": "Wiadomości",
+      "es_ES__name": "Wiadomości",
+      "icons": "/html/static/img/icons_app/sms.png",
+      "routeName": "messages",
+      "inHomePage": true,
+      "puceRef": "nbMessagesUnread"
+    },
+    {
+      "name": "Kontakty",
+      "sv_SE__name": "Kontakty",
+      "fr_FR__name": "Kontakty",
+      "en_US__name": "Kontakty",
+      "cs_CZ__name": "Kontakty",
+      "de_DE__name": "Kontakty",
+      "pl_PL__name": "Kontakty",
+      "es_ES__name": "Kontakty",
+      "icons": "/html/static/img/icons_app/contacts.png",
+      "routeName": "contacts",
+      "inHomePage": true
+    },
+    {
+      "name": "Ustawienia",
+      "sv_SE__name": "Ustawienia",
+      "fr_FR__name": "Ustawienia",
+      "en_US__name": "Ustawienia",
+      "cs_CZ__name": "Ustawienia",
+      "de_DE__name": "Ustawienia",
+      "pl_PL__name": "Ustawienia",
+      "es_ES__name": "Ustawienia",
+      "icons": "/html/static/img/icons_app/settings.png",
+      "routeName": "parametre",
+      "inHomePage": true
+    },
+    {
+      "name": "Bank",
+      "sv_SE__name": "Bank",
+      "fr_FR__name": "Bank",
+      "en_US__name": "Bank",
+      "cs_CZ__name": "Bank",
+      "de_DE__name": "Bank",
+      "pl_PL__name": "Bank",
+      "es_ES__name": "Bank",
+      "icons": "/html/static/img/icons_app/bank.png",
+      "routeName": "bank",
+      "inHomePage": false
+    },
+    {
+      "name": "Kamera",
+      "sv_SE__name": "Kamera",
+      "fr_FR__name": "Kamera",
+      "cs_CZ__name": "Kamera",
+      "en_US__name": "Kamera",
+      "de_DE__name": "Kamera",
+      "pl_PL__name": "Kamera",
+      "es_ES__name": "Kamera",
+      "icons": "/html/static/img/icons_app/photo.png",
+      "routeName": "photo",
+	  "inHomePage": false
+    },
+	  {
+      "name": "9GAG",
+      "icons": "/html/static/img/icons_app/9gag.png",
+      "routeName": "9gag",
+	  "inHomePage": false
+    },
+    {
+      "name": "Dark Chat",
+      "sv_SE__name": "Dark Chat",
+      "fr_FR__name": "Dark Chat",
+      "cs_CZ__name": "Dark Chat",
+      "en_US__name": "Dark Chat",
+      "de_DE__name": "Dark Chat",
+      "pl_PL__name": "Dark Chat",
+      "es_ES__name": "Dark Chat",
+      "icons": "/html/static/img/icons_app/tchat.png",
+      "routeName": "tchat"
+    }
+
+  ],
+  "defaultLanguage": "pl_PL",
+  "language": {
+    "pl_PL": {
+      "NAME": "Polski",
+      "PHONE_WARNING_MESSAGE": "Za duzo wiadomosci",
+      "PHONE_WARNING_MESSAGE_MESS": "Wiadomości",
+      "CONFIRM": "Potwierdź",
+      "CANCEL": "Anuluj",
+      "APP_CONFIG_TITLE": "Ustawienia",
+      "APP_CONFIG_MY_MUNBER": "Mój Numer",
+      "APP_CONFIG_WALLPAPER": "Tapeta",
+      "APP_CONFIG_CASE": "Model",
+      "APP_CONFIG_ZOOM": "Powiększenie",
+      "APP_CONFIG_VOLUME": "Głośność",
+      "APP_CONFIG_LANGUAGE": "Język",
+      "APP_CONFIG_MOUSE_SUPPORT": "Sterowanie Myszką",
+      "APP_CONFIG_RESET": "Ustawienia Fabryczne",
+      "APP_CONFIG_RESET_CONFIRM": "Przywróć Ustawienia Fabryczne",
+      "APP_PHONE_CALL": "Rozmowa",
+      "APP_PHONE_DELETE": "Usuń",
+      "APP_PHONE_DELETE_ALL": "Usuń wszystko",
+      "APP_PHONE_TITLE": "Telefon",
+      "APP_PHONE_NUMBER": "Nieznany",
+      "APP_PHONE_MENU_FAVORITES": "Ulubione",
+      "APP_PHONE_MENU_RECENTS": "Ostatnie",
+      "APP_PHONE_MENU_CONTACTS": "Kontakty",
+      "APP_PHONE_ENTER_NUMBER": "Wybierz Numer",
+      "APP_BANK_TITLE": "Maze Bank",
+      "APP_BOURSE_TITLE": "Giełda",
+      "APP_CONTACT_TITLE": "Kontakty",
+      "APP_CONTACT_NEW": "Utwórz Kontakt",
+      "APP_CONTACT_EDIT": "Edytuj Kontakt",
+      "APP_CONTACT_SAVE": "Zapisz Kontakt",
+      "APP_CONTACT_CANCEL": "Anuluj",
+      "APP_CONTACT_DELETE": "Usuń Kontakt",
+      "APP_CONTACT_LABEL_NAME": "Nazwa Kontaktu",
+      "APP_CONTACT_LABEL_NUMBER": "Numer",
+      "APP_MESSAGE_TITLE": "Wiadomości",
+      "APP_MESSAGE_NEW_MESSAGE": "Nowa wiadomość",
+      "APP_MESSAGE_ERASE_CONVERSATION": "Usuń Konwersację",
+      "APP_MESSAGE_ERASE_ALL_CONVERSATIONS": "Usuń Wszystkie Konwersacje",
+      "APP_MESSAGE_SEND_GPS": "Wyślij Lokalizację GPS",
+      "APP_MESSAGE_SET_GPS": "Wyświetl Lokalizację GPS",
+      "APP_MESSAGE_ZOOM_IMG": "Powiększ",
+      "APP_MESSAGE_DELETE": "Usuń",
+      "APP_MESSAGE_SMS": "Wiadomość",
+      "APP_MESSAGE_CONTACT_TITLE": "Kontakty",
+      "APP_MESSAGE_CONTRACT_ENTER_NUMBER": "Wybierz Numer",
+      "APP_MESSAGE_PLACEHOLDER_ENTER_MESSAGE": "Wyślij Wiadomość",
+      "APP_DARKTCHAT_TITLE": "Dark Chat",
+      "APP_DARKTCHAT_NEW_CHANNEL": "Dodaj Kanał",
+      "APP_DARKTCHAT_DELETE_CHANNEL": "Usuń Kanał",
+      "APP_DARKTCHAT_CANCEL": "Anuluj",
+      "APP_DARKTCHAT_PLACEHOLDER_ENTER_MESSAGE": "Wpisz tekst wiadomości",
+      "APP_TWITTER_NAME": "Twitter",
+      "APP_TWITTER_VIEW_TWITTER": "Twitter",
+      "APP_TWITTER_VIEW_TOP_TWEETS": "Popularne",
+      "APP_TWITTER_VIEW_TWEETER": "Napisz Tweeta",
+      "APP_TWITTER_VIEW_SETTING": "Ustawienia",
+      "APP_TWITTER_NEW_ACCOUNT_USERNAME": "Nazwa użytkownika (>= 4)",
+      "APP_TWITTER_NEW_ACCOUNT_PASSWORD": "Hasło (>= 6)",
+      "APP_TWITTER_NEW_ACCOUNT_PASSWORD_CONFIRM": "Potwierdź hasło",
+      "APP_TWITTER_NEW_ACCOUNT_AVATAR": "URL Twojego awatara",
+      "APP_TWITTER_PLACEHOLDER_MESSAGE": "Wpisz status...",
+      "APP_TWITTER_BUTTON_ACTION_TWEETER": "Wyślij",
+      "APP_TWITTER_ACCOUNT_LOGIN": "Zaloguj się",
+      "APP_TWITTER_ACCOUNT_LOGOUT": "Wyloguj się",
+      "APP_TWITTER_ACCOUNT_PARAM": "Moje konto",
+      "APP_TWITTER_ACCOUNT_AVATAR": "Zmień zdjęcie",
+      "APP_TWITTER_ACCOUNT_CHANGE_PASSWORD": "Zmiana hasła",
+      "APP_TWITTER_ACCOUNT_NEW": "Nowe konto",
+      "APP_TWIITER_ACCOUNT_SAVE": "Ustawienia Powiadomień",
+      "APP_TWIITER_ACCOUNT_CREATE": "Utwórz konto",
+      "APP_TWIITER_ACCOUNT_CANCEL": "Anuluj",
+      "APP_TWITTER_ACCOUNT_USERNAME": "Login",
+      "APP_TWITTER_ACCOUNT_PASSWORD": "Hasło",
+      "APP_TWITTER_NOTIFICATION": "Ustawienia Powiadomień",
+      "APP_TWITTER_NOTIFICATION_WHEN": "Powiadomienia",
+      "APP_TWITTER_NOTIFICATION_ALL": "Wszystkie Tweety",
+      "APP_TWITTER_NOTIFICATION_MENTION": "Tylko Oznaczenia",
+      "APP_TWITTER_NOTIFICATION_NEVER": "Powiadomienia Wyłączone",
+      "APP_TWITTER_NOTIFICATION_SOUND": "Powiadomienie Dźwiękowe",
+      "APP_TWITTER_NOTIFICATION_SOUND_YES": "Włączone",
+      "APP_TWITTER_NOTIFICATION_SOUND_NO": "Wyłączone",
+      "APP_TWITTER_NOTIF_ACCOUNT_CREATE_SUCCESS": "Twoje konto na Twitterze zostało utworzone!",
+      "APP_TWITTER_NOTIF_ACCOUNT_CREATE_ERROR": "Nazwa użytkownika jest zajęta!",
+      "APP_TWITTER_NOTIF_LOGIN_SUCCESS": "Zalogowano!",
+      "APP_TWITTER_NOTIF_LOGIN_ERROR": "Nieprawidłowy Login / Haslo!",
+      "APP_TWITTER_NOTIF_AVATAR_SUCCESS": "Twój awatar został zmieniony!",
+      "APP_TWITTER_NOTIF_NEW_PASSWORD_SUCCESS": "Twoje hasło zostało zmienione!",
+      "APP_TWITTER_NOTIF_NEW_PASSWORD_ERROR": "Wystąpił błąd podczas zmiany hasła!",
+      "APP_TWITTER_NOTIF_NEW_PASSWORD_MISS_MATCH": "Hasła nie pasują do siebie!",
+      "APP_TWITTER_NOTIF_NEW_PASSWORD_LENGTH_ERROR": "Hasło jest za krótkie!",
+      "APP_MESSAGE_SEND_PHOTO": "Wyślij zdjęcie",
+      "APP_PHONE_NUMBER_HIDDEN": "Ukryty numer",
+      "APP_PHONE_NUMBER_UNKNOWN": "Nieznany",
+      "APP_MESSAGE_MESS_CALL": "Zadzwoń",
+      "APP_MESSAGE_MESS_COPY": "Skopiuj numer",
+      "APP_MESSAGE_MESS_NUMBER": "Kontakt ",
+      "APP_MESSAGE_MESS_SMS": "SMS",
+      "APP_PHONE_CALL_ANONYMOUS": "Połączenie ukryte",
+      "APP_PHONE_CALL_IGNORE": "Ignoruj",
+      "APP_TWITTER_BUTTON_ACTION_TWEETPHOTO": "Prześlij obraz", 
+
+      "TIMEAGO": [
+        "tylko teraz",
+        ["Przed Chwilą"],
+        ["Około minuty temu", "%s minut"],
+        ["Około godziny temu", "Około %s godzin temu"],
+        ["Około tygodnia temu", "%s tydzień temu"],
+        ["%s tygodni temu", "%s tygodni temu"],
+        ["Około miesiąca temu", "%s miesięcy"],
+        ["Około roku temy", "%s lata temu"]
+      ]
+    }
+  }
+}
